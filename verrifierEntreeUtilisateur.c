@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 int main() 
 {
@@ -16,6 +18,21 @@ int main()
     {
         printf("Vous n'avez pas entré un entier\n");
     }
+
+    //Essai avec isdigit
+    printf("Entrez un entier : ");
+    fgets(input, sizeof(input), stdin);
+
+    int i;
+    for (i = 0; i < strlen(input); i++) {
+        if (!isdigit(input[i])) {
+            printf("Vous n'avez pas entré un entier\n");
+            return EXIT_SUCCESS;
+        }
+    }
+
+    sscanf(input, "%d", &num);
+    printf("Vous avez entré %d\n", num);
 
     return EXIT_SUCCESS;
 }
