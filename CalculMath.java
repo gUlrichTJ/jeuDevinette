@@ -101,12 +101,12 @@ public class CalculMath {
             System.out.println("\nBien ! Vous avez eu " + bonnesReponses + " / " + nbQuestions + "\n");
         } else {
             System.out.println("\nExcellent ! Vous avez eu " + bonnesReponses + " / " +
-                    nbQuestions + "\n");;
+                    nbQuestions + "\n");
         }
     }
 
     //Calcul en fonction de l'opérateur ; cette fonction marche pour tous les opérateurs
-    public void calcul(int limite1, int limite2, int operateur) {
+    public void calcul(int limite1, int limite2, int limite3, int limite4, int operateur) {
         
         int nombre1 = 0, nombre2 = 0, resultat = 0, resultatUtilisateur = 0;
         int bonneReponse = 0, indiceQuestionCourante = 0, nombreDeQuestions = 10;
@@ -115,7 +115,7 @@ public class CalculMath {
 
         //Nous générons les nombres pseudo-aléatoires
         nombre1 = random.nextInt(limite1, limite2);
-        nombre2 = random.nextInt(limite1, limite2);
+        nombre2 = random.nextInt(limite3, limite4);
 
         //Nous posons la question à l'utilistateur en fonction de l'opérateur
         if (operateur == 0) {   //C'est-à-dire addition
@@ -123,7 +123,7 @@ public class CalculMath {
 
                 //Nous générons les nombres pseudo-aléatoires
                 nombre1 = random.nextInt(limite1, limite2);
-                nombre2 = random.nextInt(limite1, limite2);
+                nombre2 = random.nextInt(limite3, limite4);
 
                 //Nous stockons la réponse dans une variable résultat
                 resultat = getCalcul(nombre1, nombre2, operateur);
@@ -155,7 +155,7 @@ public class CalculMath {
 
                 //Nous générons les nombres pseudo-aléatoires
                 nombre1 = random.nextInt(limite1, limite2);
-                nombre2 = random.nextInt(limite1, limite2);
+                nombre2 = random.nextInt(limite3, limite4);
 
                 //Nous stockons la réponse dans une variable résultat
                 resultat = getCalcul(nombre1, nombre2, operateur);
@@ -182,13 +182,14 @@ public class CalculMath {
             //Calcul de la note
             /**Appel de la fonction calculNote*/
             calculNote(bonneReponse, nombreDeQuestions);
-        } else if (operateur == 0) {   //C'est-à-dire division
+
+        } else if (operateur == 2) {   //C'est-à-dire division
             System.out.println("\nDivision entière.");
             do {
 
                 //Nous générons les nombres pseudo-aléatoires
                 nombre1 = random.nextInt(limite1, limite2);
-                nombre2 = random.nextInt(limite1, limite2);
+                nombre2 = random.nextInt(limite3, limite4);
 
                 //Nous stockons la réponse dans une variable résultat
                 resultat = getCalcul(nombre1, nombre2, operateur);
@@ -204,9 +205,14 @@ public class CalculMath {
                     System.out.println("Parfait");
                     bonneReponse++;
                 } else {
-                    Toolkit.getDefaultToolkit().beep();
-                    Toolkit.getDefaultToolkit().beep();
-                    System.out.println("Incorrect !  La bonne réponse est " + resultat);
+                    try {
+                        Toolkit.getDefaultToolkit().beep();
+                        Thread.sleep((long) 0.01);
+                        Toolkit.getDefaultToolkit().beep();
+                        System.out.println("Incorrect !  La bonne réponse est " + resultat);
+                    } catch (InterruptedException ie) {
+                        ie.printStackTrace();
+                    }
                 }
                 indiceQuestionCourante++;
             }
@@ -217,12 +223,12 @@ public class CalculMath {
             calculNote(bonneReponse, nombreDeQuestions);
         }
 
-        else if (operateur == 4) {   //C'est-à-dire multiplication
+        else if (operateur == 3) {   //C'est-à-dire multiplication
             do {
 
                 //Nous générons les nombres pseudo-aléatoires
                 nombre1 = random.nextInt(limite1, limite2);
-                nombre2 = random.nextInt(limite1, limite2);
+                nombre2 = random.nextInt(limite3, limite4);
 
                 //Nous stockons la réponse dans une variable résultat
                 resultat = getCalcul(nombre1, nombre2, operateur);
@@ -251,12 +257,12 @@ public class CalculMath {
             calculNote(bonneReponse, nombreDeQuestions);
         }
 
-        else if (operateur == 5) {   //C'est-à-dire modulo
+        else if (operateur == 4) {   //C'est-à-dire modulo
             do {
 
                 //Nous générons les nombres pseudo-aléatoires
                 nombre1 = random.nextInt(limite1, limite2);
-                nombre2 = random.nextInt(limite1, limite2);
+                nombre2 = random.nextInt(limite3, limite4);
 
                 //Nous stockons la réponse dans une variable résultat
                 resultat = getCalcul(nombre1, nombre2, operateur);
@@ -300,17 +306,17 @@ public class CalculMath {
                     case 1:
                         //Niveau facile
                         System.out.println("\nAdditions : faciles\n");
-                        calcul(1, 500, 0);
+                        calcul(1, 500, 1, 500, 0);
                         break;
                     case 2:
                         //Niveau intermédiaire
                         System.out.println("\nAdditions: Intermédiaire\n");
-                        calcul(1, 1000, 0);
+                        calcul(1, 2000, 1, 2000, 0);
                         break;
                     case 3:
                         //Niveau difficile
                         System.out.println("\nAdditions : Difficile\n");
-                        calcul(1, 5000, 0);
+                        calcul(1, 8000, 1, 8000, 0);
                         break;
                     default:
                         System.out.println("Valeur incorrecte !");
@@ -324,17 +330,17 @@ public class CalculMath {
                     case 1:
                         //Niveau facile
                         System.out.println("\nSoustractions : faciles\n");
-                        calcul(1, 500, 1);
+                        calcul(300, 700, 1, 500, 1);
                         break;
                     case 2:
                         //Niveau intermédiaire
                         System.out.println("\nSoustractions : Intermédiaire\n");
-                        calcul(1, 1000, 1);
+                        calcul(800, 2000, 1, 1000, 1);
                         break;
                     case 3:
                         //Niveau difficile
                         System.out.println("\nSoustractions : Difficile\n");
-                        calcul(1, 5000, 1);
+                        calcul(2000, 9000, 100, 5000, 1);
                         break;
                     default:
                         System.out.println("Valeur incorrecte !");
@@ -344,6 +350,28 @@ public class CalculMath {
                 
             case '/':
 
+                //Division
+                switch (niveau()) {
+                    //Nous avons trois niveaux
+                    case 1:
+                        //Niveau facile
+                        System.out.println("\nDivisions : faciles\n");
+                        calcul(300, 700, 1, 500, 2);
+                        break;
+                    case 2:
+                        //Niveau intermédiaire
+                        System.out.println("\nDivisions : Intermédiaire\n");
+                        calcul(800, 2000, 1, 1000, 2);
+                        break;
+                    case 3:
+                        //Niveau difficile
+                        System.out.println("\nDivisions : Difficile\n");
+                        calcul(5000, 9000, 100, 2000, 2);
+                        break;
+                    default:
+                        System.out.println("Valeur incorrecte !");
+                        break;
+                }
                 break;
                 
             case '*':
