@@ -8,7 +8,7 @@ public class Squelette {
 
     private int choix2 = 0;
     static Scanner sc = new Scanner(System.in);
-
+    
     //Constructor
     public Squelette() {
         selonNiveau();
@@ -79,6 +79,7 @@ public class Squelette {
     public void selonNiveau() {
         switch (niveau()) {
             case 1:
+                //Il faut qu'on montre à nouveau cette page à l'utilisateur
                 instruction();
                 break;
             case 2:
