@@ -289,6 +289,8 @@ public class CalculMath {
             //Calcul de la note
             /**Appel de la fonction calculNote*/
             calculNote(bonneReponse, nombreDeQuestions);
+        } else  {
+            System.out.println("No we can't");
         }
 
     }
@@ -353,7 +355,6 @@ public class CalculMath {
             case '/':
                 /**Division*/
 
-                //Division
                 switch (niveau()) {
                     //Nous avons trois niveaux
                     case 1:
