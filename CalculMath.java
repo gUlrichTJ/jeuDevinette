@@ -407,8 +407,28 @@ public class CalculMath {
                 
             case '%':
 
-                break;
-                
+                switch (niveau()) {
+                    //Nous recevons le niveau de l'utilisateur,
+                    //nous avons trois niveaux
+                    case 1:
+                        //Niveau facile
+                        System.out.println("\nDivisions : faciles\n");
+                        calcul(1, 100, 1, 25, 4);
+                        break;
+                    case 2:
+                        //Niveau intermédiaire
+                        System.out.println("\nDivisions : Intermédiaire\n");
+                        calcul(10, 100, 20, 100, 4);
+                        break;
+                    case 3:
+                        //Niveau difficile
+                        System.out.println("\nDivisions : Difficile\n");
+                        calcul(100, 500, 150, 500, 4);
+                        break;
+                    default:
+                        System.out.println("Valeur incorrecte !");
+                        break;
+                }
             case 'a':
 
                 break;
