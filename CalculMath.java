@@ -428,6 +428,7 @@ public class CalculMath {
                     default:
                         System.out.println("Valeur incorrecte !");
                         break;
+                        //Pourquoi ça ne va pas?
                 }
             case 'a':
 
