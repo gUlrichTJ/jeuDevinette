@@ -300,6 +300,7 @@ public class CalculMath {
         switch (choixOperateur()) {
             
             case '+':
+                /**Addition*/
                 //Lorsque l'utilistateur choisit l'opérateur +, je lui propose les niveaux
                 switch (niveau()) {
                     //Il y a trois niveaux
@@ -326,6 +327,7 @@ public class CalculMath {
                 
             case '-':
                 switch (niveau()) {
+                    /**Soustraction*/
                     //Nous avons trois niveaux
                     case 1:
                         //Niveau facile
@@ -349,6 +351,7 @@ public class CalculMath {
                 break;
                 
             case '/':
+                /**Division*/
 
                 //Division
                 switch (niveau()) {
