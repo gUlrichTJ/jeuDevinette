@@ -407,6 +407,10 @@ public class YovoGame {
                         System.out.println("Valeur incorrecte");
                         break;
                 }
+            
+            case 3:
+                
+                break;
         }
     }
 }
