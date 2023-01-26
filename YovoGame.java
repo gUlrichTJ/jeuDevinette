@@ -407,9 +407,204 @@ public class YovoGame {
                         System.out.println("Valeur incorrecte");
                         break;
                 }
-            
+                break;
             case 3:
-                
+                //Divisions
+                System.out.println("Divisions");
+                System.out.println("1-Facile\n2-Intermédiaire\n3-Difficile");
+                do {
+                    try {
+                        System.out.print("\nFaites votre choix entre 1 et 3 : ");
+                        usersChoice2 = sc.nextInt();
+                    } catch (InputMismatchException ime) {
+                        System.out.println(sc.next() + " n'est pas entier.");
+                    }
+                }
+                while (usersChoice2 < 1 || usersChoice2 > 3);
+
+                //Suivant que c'est facile, intermédiaire ou difficile
+                switch (usersChoice2) {
+                    case 1 :
+                        System.out.println("\tDivisions faciles\n");
+                        //Entrée du nombre de questions par l'utilisateur
+                        do {
+                            try {
+                                System.out.print("Combien de questions voulez-vous (5-80) ? ");
+                                numberOfQuestions = sc.nextInt();
+                            } catch (InputMismatchException ime) {
+                                System.out.println(sc.next() + " n'est pas entier.");
+                            }
+                        }
+                        while (numberOfQuestions < 5 || numberOfQuestions > 80);
+
+                        do {
+                            //Génération entre deux entiers
+                            number1 = random.nextInt(200, 500);
+                            number2 = random.nextInt(10, 100);
+                            result = number1 / number2;
+                            //Affichage de la question
+                            try {
+                                System.out.print(number1 + " / " + number2 + " = ");
+                                answer = sc.nextInt();
+                            } catch (InputMismatchException ime) {
+                                System.out.println(sc.next() + " n'est pas un entier.");
+                            }
+
+                            //Vérification de la réponse
+                            if (answer == result) {
+                                System.out.println("Très bien");
+                                goodAnswerCounter++;
+                            } else
+                                System.out.println("Incorrecte ! La bonne réponse est " + result);
+                            questionsCounter++;
+                        }
+                        while (questionsCounter < numberOfQuestions);
+                        //Calculation of the mark
+                        mark = goodAnswerCounter/numberOfQuestions;
+                        if (mark < 0.5) {
+                            System.out.println("Oh ! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions + " Reprenez pour vous améliorer.");
+                        } else if (mark > 0.5 && mark <= 0.7) {
+                            System.out.println("Pas mal! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions);
+                        } else if (mark > 0.7 && mark < 1) {
+                            System.out.println("Bien ! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions);
+                        } else if (mark == 1) {
+                            System.out.println("Excellent ! Vous avez eu "+ goodAnswerCounter + "/" +
+                                    numberOfQuestions);
+                        } else {
+                            System.out.println("Passable ! Vous avez eu : " + goodAnswerCounter + "/" +
+                                    numberOfQuestions);
+                        }
+                        break;
+                    case 2:
+                        //Cas intermédiaire
+                        System.out.println("\tDivisions : Intermédiaire\n");
+                        //Entrée du nombre de questions par l'utilisateur
+                        do {
+                            try {
+                                System.out.print("Combien de questions voulez-vous (5-80) ? ");
+                                numberOfQuestions = sc.nextInt();
+                            } catch (InputMismatchException ime) {
+                                System.out.println(sc.next() + " n'est pas un entier.");
+                            }
+                        }
+                        while (numberOfQuestions < 5 || numberOfQuestions > 80);
+
+                        do {
+                            //Génération entre deux entiers
+                            number1 = random.nextInt(200, 700);
+                            number2 = random.nextInt(100, 500);
+                            result = number1 / number2;
+                            //Affichage de la question
+                            try {
+                                System.out.print(number1 + " / " + number2 + " = ");
+                                answer = sc.nextInt();
+                            } catch (InputMismatchException ime) {
+                                System.out.println(sc.next() + " n'est pas un entier.");
+                            }
+
+                            //Vérification de la réponse
+                            if (answer == result) {
+                                System.out.println("Parfait");
+                                goodAnswerCounter++;
+                            } else
+                                System.out.println("Incorrecte ! La bonne réponse est " + result);
+                            questionsCounter++;
+                        }
+                        while (questionsCounter < numberOfQuestions);
+                        //Calculation of the mark
+                        try {
+                            mark = (double) goodAnswerCounter/numberOfQuestions;
+                        } catch (ArithmeticException e) {
+                            System.out.println("Impossible d'effectuer la division");
+                        }
+                        if (mark < 0.5) {
+                            System.out.println("Oh ! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions + " Reprenez pour vous améliorer.");
+                        } else if (mark > 0.5 && mark <= 0.7) {
+                            System.out.println("Pas mal! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions);
+                        } else if (mark > 0.7 && mark < 1) {
+                            System.out.println("Bien ! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions);
+                        } else if (mark == 1) {
+                            System.out.println("Excellent ! Vous avez eu "+ goodAnswerCounter + "/" +
+                                    numberOfQuestions);
+                        } else {
+                            System.out.println("Passable ! Vous avez eu : " + goodAnswerCounter + "/" +
+                                    numberOfQuestions);
+                        }
+                        break;
+                    case 3:
+                        //Niveau difficile
+                        System.out.println("\tDivisions : Difficile\n");
+                        //Entrée du nombre de questions par l'utilisateur
+                        do {
+                            try {
+                                System.out.print("Combien de questions voulez-vous (10-100) ? ");
+                                numberOfQuestions = sc.nextInt();
+                            } catch (InputMismatchException ime) {
+                                System.out.println(sc.next() + " n'est pas un entier.");
+                            }
+                        }
+                        while (numberOfQuestions < 10 || numberOfQuestions > 100);
+
+                        do {
+                            //Génération des trois entiers
+                            number1 = random.nextInt(1000, 5000);
+                            number2 = random.nextInt(100, 1000);
+                            result = number1 / number2;
+
+                            //Contrôle de la saisie de l'utilisateur
+                            try {
+                                //Affichage de la question
+                                System.out.print(number1 + " / " + number2 + " = ");
+
+                                //Réponse de l'utilisateur
+                                answer = sc.nextInt();
+                            } catch (InputMismatchException ime) {
+                                System.out.println(sc.next() + " n'est pas un entier.");
+                            }
+
+                            //Vérification de la réponse
+                            if (answer == result) {
+                                System.out.println("Very nice");
+                                goodAnswerCounter++;
+                            } else
+                                System.out.println("Non ! La bonne réponse est " + result);
+                            questionsCounter++;
+                        }
+                        while (questionsCounter < numberOfQuestions);
+                        //Calculation of the mark
+                        mark = (double) goodAnswerCounter/numberOfQuestions;
+                        if (mark < 0.5) {
+                            System.out.println("Dommage ! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions + ". Un second essai vous serait d'un bon avantage.");
+                        } else if (mark > 0.5 && mark <= 0.7) {
+                            System.out.println("Pas mal! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions + ".");
+                        } else if (mark > 0.7 && mark < 1) {
+                            System.out.println("Bien ! Vous avez eu " + goodAnswerCounter + "/" +
+                                    numberOfQuestions+ ".");
+                        } else if (mark == 1) {
+                            System.out.println("Excellent ! Vous avez eu "+ goodAnswerCounter + "/" +
+                                    numberOfQuestions+ ".");
+                        } else {
+                            System.out.println("Passable ! Vous avez eu : " + goodAnswerCounter + "/" +
+                                    numberOfQuestions+ ".");
+                        }
+                        break;
+                    default:
+                        System.out.println("Valeur incorrecte");
+                        break;
+                }
+
+                break;
+
+            case 4:
+
                 break;
         }
     }
