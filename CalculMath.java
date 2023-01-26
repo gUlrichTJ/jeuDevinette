@@ -418,7 +418,7 @@ public class CalculMath {
                     case 2:
                         //Niveau intermédiaire
                         System.out.println("\nDivisions : Intermédiaire\n");
-                        calcul(10, 100, 20, 100, 4);
+                  calcul(10, 100, 20, 100, 4);
                         break;
                     case 3:
                         //Niveau difficile
