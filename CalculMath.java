@@ -431,7 +431,7 @@ public class CalculMath {
                         //Pourquoi ça ne va pas?
                 }
             case 'a':
-
+                //Je crois qu'il va nous falloir laisser ce côté.
                 break;
                 
             default:
