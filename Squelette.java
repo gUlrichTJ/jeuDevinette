@@ -38,8 +38,8 @@ public class Squelette {
 
     //Partie instructions
     public void instruction() {
-        //choix2 = niveau();
-        System.out.println("Nous avons trois différents jeux : \n" +
+        System.out.println("\n\nINTRODUCTION\n");
+        System.out.println("\nNous avons trois différents jeux : \n" +
                 "1-) Le jeu de calul : dans cette partie, vous choisissez entre l'addition, la " +
                 "soustraction, la division, la mulitiplication, le modulo " +
                 "(reste de la division entière) ou opération décidée par l'ordinateur où l'ordinateur" +
@@ -48,12 +48,14 @@ public class Squelette {
                 "par l'ordinateur en fonction du niveau que vous avez choisi;");
         System.out.println("3-) Mots mêlés : Un utilisateur entre un mot; l'ordinateur le mélange puis un " +
                 "second utilisateur vient deviner le mot mélangé.");
+
+        sc.nextLine();
     }
 
     //Niveaux des jeux
     public int niveau2() {
         int aff1 = 1, aff2 = 3;
-        int choix = 0;
+       int choix = 0;
 
         //Présentation des différents jeux
         System.out.println("\nCette partie présente trois niveaux");
@@ -77,33 +79,34 @@ public class Squelette {
 
     //Suivant le niveau choisi par l'utilisateur
     public void selonNiveau() {
-        switch (niveau()) {
-            case 1:
-                //Il faut qu'on montre à nouveau cette page à l'utilisateur
-                instruction();
-                break;
-            case 2:
-                switch (niveau2()) {
-                    case 1:
-                        //Ici nous appelerons la classe CalculMath
-                        CalculMath c = new CalculMath();
-                        c.selonChoixUtilisateur();
-                        break;
-                    case 2:
-                        //Ici nous appelons la classe Deviner
-                        break;
-                    case 3:
-                        //Ici nous appelons la classe MotMeles
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case 3:
-                //À propos de l'utilisateur
-                break;
-            default:
-                break;
-        }
+            switch (niveau()) {
+
+                case 1:
+                    //Il faut qu'on montre à nouveau cette page à l'utilisateur
+                    instruction();
+                    break;
+                case 2:
+                    switch (niveau2()) {
+                        case 1:
+                            //Ici nous appelerons la classe CalculMath
+                            CalculMath c = new CalculMath();
+                            c.selonChoixUtilisateur();
+                            break;
+                        case 2:
+                            //Ici nous appelons la classe Deviner
+                            break;
+                        case 3:
+                            //Ici nous appelons la classe MotMeles
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 3:
+                    //À propos de l'utilisateur
+                    break;
+                default:
+                    break;
+            }
     }
 }
