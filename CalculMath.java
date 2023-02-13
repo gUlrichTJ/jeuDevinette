@@ -247,7 +247,7 @@ public class CalculMath {
                     System.out.print(nombre1 + " * " + nombre2 + " = ");
                     resultatUtilisateur = sc.nextInt();
                 } catch (InputMismatchException ime) {
-                    System.out.println(sc.next() + " n'est pas un entier");
+                    System.out.println(sc.next() + " n'est pas un entier"); 
                 }
                 if (resultatUtilisateur == resultat) {
                     Toolkit.getDefaultToolkit().beep();
@@ -268,7 +268,7 @@ public class CalculMath {
             }
             while (indiceQuestionCourante < nombreDeQuestions);
 
-            //Calcul de la note
+            //Calcul de la note, 
             /**Appel de la fonction calculNote*/
             calculNote(bonneReponse, nombreDeQuestions);
         }
