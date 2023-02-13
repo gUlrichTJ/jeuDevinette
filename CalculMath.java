@@ -139,8 +139,13 @@ public class CalculMath {
                     System.out.println("Parfait");
                     bonneReponse++;
                 } else {
-                    Toolkit.getDefaultToolkit().beep();
-                    Toolkit.getDefaultToolkit().beep();
+                    try {
+                        Toolkit.getDefaultToolkit().beep();
+                        Thread.sleep(100);
+                        Toolkit.getDefaultToolkit().beep();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     System.out.println("Incorrect !  La bonne réponse est " + resultat);
                 }
                 indiceQuestionCourante++;
@@ -171,8 +176,13 @@ public class CalculMath {
                     System.out.println("Parfait");
                     bonneReponse++;
                 } else {
-                    Toolkit.getDefaultToolkit().beep();
-                    Toolkit.getDefaultToolkit().beep();
+                    try {
+                        Toolkit.getDefaultToolkit().beep();
+                        Thread.sleep(100);
+                        Toolkit.getDefaultToolkit().beep();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     System.out.println("Incorrect !  La bonne réponse est " + resultat);
                 }
                 indiceQuestionCourante++;
@@ -207,7 +217,7 @@ public class CalculMath {
                 } else {
                     try {
                         Toolkit.getDefaultToolkit().beep();
-                        Thread.sleep((long) 0.01);
+                        Thread.sleep(100);
                         Toolkit.getDefaultToolkit().beep();
                         System.out.println("Incorrect !  La bonne réponse est " + resultat);
                     } catch (InterruptedException ie) {
@@ -244,7 +254,13 @@ public class CalculMath {
                     System.out.println("Parfait");
                     bonneReponse++;
                 } else {
-                    Toolkit.getDefaultToolkit().beep();
+                    try {
+                        Toolkit.getDefaultToolkit().beep();
+                        Thread.sleep(100);
+                        Toolkit.getDefaultToolkit().beep();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     Toolkit.getDefaultToolkit().beep();
                     System.out.println("Incorrect !  La bonne réponse est " + resultat);
                 }
@@ -280,7 +296,7 @@ public class CalculMath {
                 } else {
                     try {
                         Toolkit.getDefaultToolkit().beep();
-                        Thread.sleep(1);
+                        Thread.sleep(100);
                         Toolkit.getDefaultToolkit().beep();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
