@@ -278,8 +278,13 @@ public class CalculMath {
                     System.out.println("Parfait");
                     bonneReponse++;
                 } else {
-                    Toolkit.getDefaultToolkit().beep();
-                    Toolkit.getDefaultToolkit().beep();
+                    try {
+                        Toolkit.getDefaultToolkit().beep();
+                        Thread.sleep(1);
+                        Toolkit.getDefaultToolkit().beep();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     System.out.println("Incorrect !  La bonne réponse est " + resultat);
                 }
                 indiceQuestionCourante++;
